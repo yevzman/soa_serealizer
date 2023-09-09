@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  proxy:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    networks:
+      - serialize_network
+    ports:
+      - 2000:2000/udp
+    depends_on:
+      - native
+      - xml
+      - json
+      - yaml
+  native:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      FORMAT: native
+      PORT: 5000
+      HOST: 0.0.0.0
+    networks:
+      - serialize_network
+    ports:
+      - 5000:5000/udp
+  xml:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      FORMAT: xml
+      PORT: 5003
+      HOST: 0.0.0.0
+    networks:
+      - serialize_network
+    ports:
+      - 5003:5003/udp
+  json:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      FORMAT: json
+      PORT: 5001
+      HOST: 0.0.0.0
+    networks:
+      - serialize_network
+    ports:
+      - 5001:5001/udp
+  yaml:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      FORMAT: yaml
+      PORT: 5002
+      HOST: 0.0.0.0
+    networks:
+      - serialize_network
+    ports:
+      - 5002:5002/udp
+
+networks:
+  serialize_network:
+    name: serialize_network
