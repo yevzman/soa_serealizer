@@ -3,12 +3,14 @@ import socket
 
 client_address = ("0.0.0.0", 2000)
 server_addresses_mappings = {
-    'native':   ("soa_serealizer-native-1", 5000),
-    'json':     ("soa_serealizer-json-1", 5001),
-    'yaml':     ("soa_serealizer-yaml-1", 5002),
-    'xml':      ("soa_serealizer-xml-1", 5003)
+    'native':           ("soa_serealizer-native-1", 5000),
+    'json':             ("soa_serealizer-json-1", 5001),
+    'yaml':             ("soa_serealizer-yaml-1", 5002),
+    'xml':              ("soa_serealizer-xml-1", 5003),
+    'message_pack':     ("soa_serealizer-message_pack-1", 5004),
+    'avro':             ("soa_serealizer-avro-1", 5005)
 }
-formats = ['native', 'json', 'yaml', 'xml']
+formats = ['native', 'json', 'yaml', 'xml', 'message_pack', 'avro']
 
 if __name__ == '__main__':    
     print('client start')

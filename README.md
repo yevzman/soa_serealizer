@@ -8,7 +8,7 @@
 echo "/get_result FORMAT" | nc -u localhost 2000
 ```
 
-где FORMAT из списка ['json', 'yaml', 'native', 'xml']
+где FORMAT из списка ['json', 'yaml', 'native', 'xml', 'message_pack', 'avro']
 
 например:
 ```

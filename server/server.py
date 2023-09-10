@@ -1,4 +1,4 @@
-from serializers import xml, json, yaml, native
+from serializers import xml, json, yaml, native, message_pack, avro
 import socket
 import threading
 import sys, timeit, os
@@ -8,7 +8,9 @@ mapping = {
     'xml': xml.XmlSerializer(),
     'json': json.JsonSerializer(),
     'yaml': yaml.YamlSerializer(),
-    'native': native.NativeSerializer()
+    'native': native.NativeSerializer(),
+    'message_pack': message_pack.MessagePackSerializer(),
+    'avro': avro.AvroSerializer()
 }
 
 def make_observation(data, serializer):
